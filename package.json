@@ -1,0 +1,68 @@
+{
+  "name": "h1de",
+  "version": "0.0.0",
+  "description": "优雅的方式隐藏你的敏感/隐私信息。 Hide your privacy elegantly.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "nyc ava"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/willin/h1de.git"
+  },
+  "keywords": [
+    "hide",
+    "privacy",
+    "elegantly"
+  ],
+  "author": "Willin Wang",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/willin/h1de/issues"
+  },
+  "homepage": "https://github.com/willin/h1de#readme",
+  "devDependencies": {
+    "ava": "^3.10.1",
+    "eslint": "^7.5.0",
+    "eslint-config-willin": "^1.0.3",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
+    "nyc": "^15.1.0",
+    "prettier": "^2.0.5"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "eslint --fix"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "engines": {
+    "node": ">=8.0"
+  },
+  "ava": {
+    "files": [
+      "test/**/*.js",
+      "!**/_*/*.js",
+      "!**/_*.js"
+    ]
+  },
+  "nyc": {
+    "lines": 80,
+    "check-coverage": true,
+    "reporter": [
+      "lcov"
+    ],
+    "report-dir": "./.nyc_output",
+    "exclude": [
+      "test",
+      "test{,-*}.js",
+      "**/*.test.js",
+      "**/__tests__/**"
+    ]
+  }
+}
