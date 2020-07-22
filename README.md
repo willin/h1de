@@ -21,7 +21,7 @@ npm install -g h1de
 一次性使用：
 
 ```bash
-npx h1de [command] [params]
+npx h1de [command] [...params]
 ```
 
 ### 代码使用 In codes
@@ -45,6 +45,58 @@ hide.base64('willin@willin.org');
 ```
 
 ## 文档 API Document
+
+### tr(str[, mask_chars])
+
+Params:
+
+- str: 必填 Required
+- mask_chars: 可选 Optional
+  - 默认值 Default: `abcdefhijkmnprstwxyz2345678`
+  - 重复字符会被过滤。 Ignore duplicate character.
+  - 以下字符会被过滤： Ignore characters:
+  - > #'`-
+
+JS Demo:
+
+```js
+const h1de = require('h1de');
+
+h1de.tr('willin@willin.org');
+// echo hkzzkjrhkzzkjf3em | tr he3jzkmrf wronlig@.
+
+h1de.tr('willin@willin.org', 'oO_~@#.+=');
+// echo ~@OO@+.~@OO@+=o#_ | tr ~#o+O@_.= wronlig@.
+```
+
+CLI Demo:
+
+```bash
+h1de tr willin@willin.org
+# echo Oo__o#aOo__o#@+.~ | tr O.+#_o~a@ wronlig@.
+```
+
+### base64(str)
+
+Params:
+
+- str: 必填 Required
+
+JS Demo:
+
+```js
+const h1de = require('h1de');
+
+h1de.base64('willin@willin.org');
+// echo d2lsbGluQHdpbGxpbi5vcmc= | base64 -d
+```
+
+CLI Demo:
+
+```bash
+h1de base64 willin@willin.org
+# echo d2lsbGluQHdpbGxpbi5vcmc= | base64 -d
+```
 
 ## License
 
