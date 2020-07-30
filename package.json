@@ -1,11 +1,12 @@
 {
   "name": "h1de",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "优雅的方式隐藏你的敏感/隐私信息。 Hide your privacy elegantly.",
   "main": "src/index.js",
   "bin": "src/cli.js",
   "scripts": {
-    "test": "nyc ava"
+    "test": "nyc ava",
+    "postinstall": "v0"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,9 @@
     "url": "https://github.com/willin/h1de/issues"
   },
   "homepage": "https://github.com/willin/h1de#readme",
+  "dependencies": {
+    "v0": "^0.1.5"
+  },
   "devDependencies": {
     "ava": "^3.10.1",
     "eslint": "^7.5.0",
